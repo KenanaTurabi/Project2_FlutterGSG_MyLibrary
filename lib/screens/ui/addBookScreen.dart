@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/ui/InfoScreen.dart';
+//import 'package:flutter_application_1/screens/ui/InfoScreen.dart';
+import 'package:flutter_application_1/screens/ui/InformationScreen.dart';
 import 'package:flutter_application_1/screens/ui/NotesScreen.dart';
 
 class AddBooksScreen extends StatelessWidget {
@@ -38,7 +39,7 @@ class AddBooksScreen extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              InfoScreen(),
+              InformationScreen(),
               NotesScreen(),
             ],
           )),

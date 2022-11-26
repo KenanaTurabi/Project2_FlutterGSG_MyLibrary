@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/provider/libraryProvider.dart';
 import 'package:flutter_application_1/screens/ui/HomeScreen.dart';
+import 'package:flutter_application_1/screens/ui/splash.dart';
+//import 'package:flutter_application_1/screens/ui/InfoScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -26,7 +28,7 @@ class AppInit extends StatelessWidget {
       theme: Provider.of<MyLibraryProvider>(context).isDarkMode
           ? ThemeData.dark()
           : ThemeData.light(),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

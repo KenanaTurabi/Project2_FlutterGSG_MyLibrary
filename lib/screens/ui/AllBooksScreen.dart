@@ -4,6 +4,8 @@ class AllBooksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold();
+    return Scaffold(
+      body: Text('ALL BOOKS'),
+    );
   }
 }
