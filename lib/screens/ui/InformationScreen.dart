@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:dropdown_formfield/dropdown_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/provider/libraryProvider.dart';
+import 'package:provider/provider.dart';
 
 class InformationScreen extends StatefulWidget {
   @override
@@ -8,6 +12,7 @@ class InformationScreen extends StatefulWidget {
 
 class _InformationScreenState extends State<InformationScreen> {
   bool value = false;
+
   String _myCategory = "";
 
   String _myCategoryResult = "";
@@ -27,8 +32,9 @@ class _InformationScreenState extends State<InformationScreen> {
           child: Column(
             children: [
               TextFormField(
-                //controller:
-                // Provider.of<MyLibraryProvider>(context).Title_Info_Controller,
+                controller:
+                    Provider.of<MyLibraryProvider>(context, listen: false)
+                        .Title_Info_Controller,
                 decoration: const InputDecoration(
                     enabledBorder:
                         OutlineInputBorder(borderSide: BorderSide(width: 1)),
@@ -54,8 +60,9 @@ class _InformationScreenState extends State<InformationScreen> {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      /* controller: Provider.of<MyLibraryProvider>(context)
-                        .LastName_Info_Controller, */
+                      controller:
+                          Provider.of<MyLibraryProvider>(context, listen: false)
+                              .LastName_Info_Controller,
                       decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 1)),
@@ -70,8 +77,9 @@ class _InformationScreenState extends State<InformationScreen> {
                   ),
                   Expanded(
                     child: TextField(
-                      /* controller: Provider.of<MyLibraryProvider>(context)
-                        .LastName_Info_Controller, */
+                      controller:
+                          Provider.of<MyLibraryProvider>(context, listen: false)
+                              .FirstName_Info_Controller,
                       decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 1)),
@@ -103,8 +111,9 @@ class _InformationScreenState extends State<InformationScreen> {
                   Expanded(
                       child: TextField(
                     maxLines: 4,
-                    /* controller: Provider.of<MyLibraryProvider>(context)
-                        .Summary_Info_Controller, */
+                    controller:
+                        Provider.of<MyLibraryProvider>(context, listen: false)
+                            .Summary_Info_Controller,
                     decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 1)),
@@ -171,8 +180,9 @@ class _InformationScreenState extends State<InformationScreen> {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      /* controller: Provider.of<MyLibraryProvider>(context)
-                      .PuplishedDate_Info_Controller, */
+                      controller:
+                          Provider.of<MyLibraryProvider>(context, listen: false)
+                              .PuplishedDate_Info_Controller,
                       decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 1)),
@@ -187,8 +197,9 @@ class _InformationScreenState extends State<InformationScreen> {
                   ),
                   Expanded(
                     child: TextField(
-                      /* controller: Provider.of<MyLibraryProvider>(context)
-                      .puplisher_Info_Controller, */
+                      controller:
+                          Provider.of<MyLibraryProvider>(context, listen: false)
+                              .puplisher_Info_Controller,
                       decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 1)),
@@ -204,8 +215,9 @@ class _InformationScreenState extends State<InformationScreen> {
                 height: 5,
               ),
               TextFormField(
-                /* controller:
-                Provider.of<MyLibraryProvider>(context).pages_Info_ontroller, */
+                controller:
+                    Provider.of<MyLibraryProvider>(context, listen: false)
+                        .pages_Info_ontroller,
                 decoration: const InputDecoration(
                     enabledBorder:
                         OutlineInputBorder(borderSide: BorderSide(width: 1)),
@@ -218,8 +230,9 @@ class _InformationScreenState extends State<InformationScreen> {
                 height: 5,
               ),
               TextFormField(
-                /* controller:
-                Provider.of<MyLibraryProvider>(context).ISBN_Info_ontroller, */
+                controller:
+                    Provider.of<MyLibraryProvider>(context, listen: false)
+                        .ISBN_Info_ontroller,
                 decoration: const InputDecoration(
                     enabledBorder:
                         OutlineInputBorder(borderSide: BorderSide(width: 1)),
@@ -235,7 +248,22 @@ class _InformationScreenState extends State<InformationScreen> {
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size.fromHeight(50),
                 ),
-                onPressed: (() {}),
+                onPressed: (() {
+                  log('finish1');
+                  Provider.of<MyLibraryProvider>(context, listen: false)
+                      .insertNewBook();
+
+                  var len =
+                      Provider.of<MyLibraryProvider>(context, listen: false)
+                          .AllBooks
+                          .length;
+                  log('$len');
+                  print(Provider.of<MyLibraryProvider>(context, listen: false)
+                      .AllBooks);
+
+                  log('finish2');
+                  setState(() {});
+                }),
                 child: Text('OK'),
               ),
             ],

@@ -4,53 +4,52 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 
 class Book {
+  int? BookId;
   String? BookName;
   String? AutherFirstName;
   String? AutherLastName;
   int? pageNum;
-  int? BookId;
   String? Summary;
-  String? Category;
-  String? PublishedDate;
+  int? PublishedDate;
   String? Publisher;
   int? ISBN;
-  Book(
-      {this.BookName,
-      this.AutherFirstName,
-      this.AutherLastName,
-      this.pageNum,
-      this.BookId,
-      this.Summary,
-      this.Category,
-      this.PublishedDate,
-      this.Publisher,
-      this.ISBN});
+
+  Book({
+    this.BookId,
+    this.BookName,
+    this.AutherFirstName,
+    this.AutherLastName,
+    this.pageNum,
+    this.Summary,
+    this.ISBN,
+    this.PublishedDate,
+    this.Publisher,
+  });
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'BookName': BookName,
-      'AutherFirstName': AutherFirstName,
-      'AutherLastName': AutherLastName,
-      'pageNum': pageNum,
-      'BookId': BookId,
-      'Summary': Summary,
-      'Category': Category,
-      'PublishedDate': PublishedDate,
-      'Publisher': Publisher,
-      'ISBN': ISBN,
-    };
+    Map<String, dynamic> map = <String, dynamic>{};
+
+    map['BookName'] = BookName;
+    map['AutherFirstName'] = AutherFirstName;
+    map['AutherLastName'] = AutherLastName;
+    map['pageNum'] = pageNum;
+    map['BookId'] = BookId;
+    map['Summary'] = Summary;
+    map['PublishedDate'] = PublishedDate;
+    map['Publisher'] = Publisher;
+    map['ISBN'] = ISBN;
+    return map;
   }
 
   Book.fromMap(Map<String, dynamic> map) {
-    this.BookName = map['BookName'];
-    this.AutherFirstName = map['AutherFirstName'];
-    this.AutherLastName = map['AutherLastName'];
-    this.pageNum = map['pageNum'];
-    this.BookId = map['BookId'];
-    this.Summary = map['Summary'];
-    this.Category = map['Category'];
-    this.PublishedDate = map['PublishedDate'];
-    this.Publisher = map['Publisher'];
-    this.ISBN = map['ISBN'];
+    BookName = map['BookName'];
+    AutherFirstName = map['AutherFirstName'];
+    AutherLastName = map['AutherLastName'];
+    pageNum = map['pageNum'];
+    BookId = map['BookId'];
+    Summary = map['Summary'];
+    PublishedDate = map['PublishedDate'];
+    Publisher = map['Publisher'];
+    ISBN = map['ISBN'];
   }
 }

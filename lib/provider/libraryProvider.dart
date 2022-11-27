@@ -21,18 +21,32 @@ class MyLibraryProvider extends ChangeNotifier {
   TextEditingController ISBN_Info_ontroller = TextEditingController();
   getAllBooks() async {
     AllBooks = await DbHelper.dbHelper.getAllBooks();
+    print(AllBooks.length);
+    notifyListeners();
   }
 
-  insertNewBook() {
-    Book? book;
-    book!.AutherFirstName = FirstName_Info_Controller.text;
-    book!.AutherLastName = LastName_Info_Controller.text;
-    book!.BookName = Title_Info_Controller.text;
-    book!.Summary = Summary_Info_Controller.text;
-    book!.PublishedDate = PuplishedDate_Info_Controller.text;
-    book.Publisher = puplisher_Info_Controller.text;
-    book.ISBN = ISBN_Info_ontroller as int?;
-    book.pageNum = pages_Info_ontroller as int?;
-    DbHelper.dbHelper.insertBook(book);
+  insertNewBook() async {
+    Book book = Book(
+      BookName: Title_Info_Controller.text,
+      AutherFirstName: FirstName_Info_Controller.text,
+      AutherLastName: LastName_Info_Controller.text,
+      Summary: Summary_Info_Controller.text,
+      PublishedDate: int.parse(PuplishedDate_Info_Controller.text),
+      Publisher: puplisher_Info_Controller.text,
+      ISBN: int.parse(ISBN_Info_ontroller.text),
+      pageNum: int.parse(pages_Info_ontroller.text),
+    );
+
+    Title_Info_Controller.clear();
+    LastName_Info_Controller.clear();
+    FirstName_Info_Controller.clear();
+    Summary_Info_Controller.clear();
+    PuplishedDate_Info_Controller.clear();
+    puplisher_Info_Controller.clear();
+    pages_Info_ontroller.clear();
+    ISBN_Info_ontroller.clear();
+
+    await DbHelper.dbHelper.insertBook(book);
+    getAllBooks();
   }
 }
