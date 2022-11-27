@@ -15,9 +15,9 @@ class AllBooksScreen extends StatelessWidget {
           }),
           separatorBuilder: ((context, index) => const Divider(
                 height: 20,
-                thickness: 5,
-                indent: 20,
-                endIndent: 0,
+                thickness: 0.5,
+                indent: 5,
+                endIndent: 5,
                 color: Colors.black,
               )));
     });

@@ -43,9 +43,10 @@ class DbHelper {
     });
   }
 
-  deleteBook(Book book) async {
+  Future<int> deleteBook(Book book) async {
     int count = await database
         .delete(TableName, where: 'BookId=?', whereArgs: [book.BookId]);
+    return count;
   }
 
   Future<int> insertBook(Book book) async {

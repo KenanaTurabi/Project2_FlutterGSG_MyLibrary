@@ -49,4 +49,9 @@ class MyLibraryProvider extends ChangeNotifier {
     await DbHelper.dbHelper.insertBook(book);
     getAllBooks();
   }
+
+  deleteBook(Book book) async {
+    await DbHelper.dbHelper.deleteBook(book);
+    getAllBooks();
+  }
 }
