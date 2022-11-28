@@ -12,6 +12,8 @@ class BookWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -38,9 +40,10 @@ class BookWidget extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          Spacer(),
+          /* SizedBox(
             width: 80,
-          ),
+          ), */
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
